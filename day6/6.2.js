@@ -3,7 +3,7 @@ module.exports = input => {
     for (let i = 0; i < 1000; i++) {
         grid.push([])
         for (let j = 0; j < 1000; j++) {
-            grid[i].push(false)
+            grid[i].push(0)
         }
     }
 
@@ -17,13 +17,13 @@ module.exports = input => {
         }
     })
 
-    return countLightsOn(grid)
+    return calculateBrightness(grid)
 }
 
 const turnOn = (grid, values) => {
     for (let i = values.x1; i <= values.x2; i++) {
         for (let j = values.y1; j <= values.y2; j++) {
-            grid[i][j] = true
+            grid[i][j]++
         }
     }
     return grid
@@ -32,7 +32,7 @@ const turnOn = (grid, values) => {
 const turnOff = (grid, values) => {
     for (let i = values.x1; i <= values.x2; i++) {
         for (let j = values.y1; j <= values.y2; j++) {
-            grid[i][j] = false
+            grid[i][j] > 0 ? grid[i][j]-- : grid[i][j] = 0
         }
     }
     return grid
@@ -41,7 +41,7 @@ const turnOff = (grid, values) => {
 const toggle = (grid, values) => {
     for (let i = values.x1; i <= values.x2; i++) {
         for (let j = values.y1; j <= values.y2; j++) {
-            grid[i][j] = !grid[i][j]
+            grid[i][j] += 2
         }
     }
     return grid
@@ -56,14 +56,12 @@ const parseValues = line => {
     }
 }
 
-const countLightsOn = grid => {
-    let count = 0
+const calculateBrightness = grid => {
+    let brightness = 0
     for (let i = 0; i < grid.length; i++) {
         for (let j = 0; j < grid[i].length; j++) {
-            if (grid[i][j]) {
-                count++
-            }
+            brightness += grid[i][j]
         }
     }
-    return count
+    return brightness
 }
