@@ -1,0 +1,29 @@
+{
+  "name": "adventofcode2015",
+  "version": "1.0.0",
+  "description": "Solutions to 2015 advent of code problems",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "latest",
+    "moment": "^2.22.2",
+    "perf_hooks": "0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blaskowski94/adventOfCode2015.git"
+  },
+  "author": "Bob Laskowski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blaskowski94/adventOfCode2015/issues"
+  },
+  "homepage": "https://github.com/blaskowski94/adventOfCode2015#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

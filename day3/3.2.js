@@ -1,17 +1,16 @@
-const fs = require('fs')
 const _ = require('lodash')
 
-fs.readFile('3.input.txt', 'utf8', function (err, data) {
+module.exports = input => {
     let xSanta1 = 0, ySanta1 = 0, xSanta2 = 0, ySanta2 = 0, moveNum = 1, grid = {}, even
     grid['0.0'] = 2
-    _.map(data, letter => {
+    _.map(input, letter => {
         even = moveNum % 2 === 0
         switch (letter) {
             case '>':
                 even ? xSanta2++ : xSanta1++
                 break
             case '<':
-               even ? xSanta2-- : xSanta1--
+                even ? xSanta2-- : xSanta1--
                 break
             case 'v':
                 even ? ySanta2-- : ySanta1--
@@ -27,6 +26,5 @@ fs.readFile('3.input.txt', 'utf8', function (err, data) {
         }
         moveNum++
     })
-    console.log(Object.keys(grid).length)
-})
-
+    return Object.keys(grid).length
+}

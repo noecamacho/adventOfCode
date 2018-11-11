@@ -1,10 +1,9 @@
-const fs = require('fs')
 const _ = require('lodash')
 
-fs.readFile('3.input.txt', 'utf8', function (err, data) {
+module.exports = input => {
     let xPos = 0, yPos = 0, grid = {}
     grid['0.0'] = 1
-    _.map(data, letter => {
+    _.map(input, letter => {
         switch (letter) {
             case '>':
                 xPos++
@@ -22,6 +21,6 @@ fs.readFile('3.input.txt', 'utf8', function (err, data) {
         grid[`${xPos}.${yPos}`] = grid[`${xPos}.${yPos}`] ? grid[`${xPos}.${yPos}`]++ : 1
 
     })
-    console.log(Object.keys(grid).length)
-})
 
+    return Object.keys(grid).length
+}
