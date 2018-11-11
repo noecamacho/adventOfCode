@@ -6,7 +6,6 @@
   "dependencies": {
     "lodash": "latest",
     "md5": "^2.2.1",
-    "moment": "^2.22.2",
     "perf_hooks": "0.0.1"
   },
   "devDependencies": {},
