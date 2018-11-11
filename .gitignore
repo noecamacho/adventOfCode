@@ -9,3 +9,4 @@ out
 gen
 .idea/workspace.xml
 node_modules/
+/package.json
