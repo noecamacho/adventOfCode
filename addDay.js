@@ -1,13 +1,19 @@
-const _ = require('lodash')
 const fs = require('fs')
+const currentYear = require('./currentYear')
 
 //process args
 let day = process.argv[2] ? process.argv[2] : 1
+let year = process.argv[3] ? process.argv[3] : currentYear
 
-dir = `./day${day}`
+let yearDir = `./${year}`
+let dir = `./${year}/day${day}`
+if (!fs.existsSync(yearDir)) {
+    console.log(`Creating directory for year ${year}...`)
+    fs.mkdirSync(yearDir)
+}
 if (!fs.existsSync(dir)) {
     //directories
-    console.log(`Creating directories for $${day}...`)
+    console.log(`Creating files for day ${day}...`)
     fs.mkdirSync(dir)
     fs.writeFileSync(`${dir}/input.txt`, 12345)
 
