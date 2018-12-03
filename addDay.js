@@ -1,7 +1,7 @@
 const fs = require('fs')
 const currentYear = require('./currentYear')
 
-//process args
+// process args
 let day = process.argv[2] ? process.argv[2] : 1
 let year = process.argv[3] ? process.argv[3] : currentYear
 
@@ -12,16 +12,19 @@ if (!fs.existsSync(yearDir)) {
     fs.mkdirSync(yearDir)
 }
 if (!fs.existsSync(dir)) {
-    //directories
+    // directories
     console.log(`Creating files for day ${day}...`)
     fs.mkdirSync(dir)
     fs.writeFileSync(`${dir}/input.txt`, 12345)
 
-    //code
+    // code
     console.log(`Creating code for parts 1 and 2...`)
     let func = `module.exports = input => {\n    return input\n}`
     fs.writeFileSync(`${dir}/${day}.1.js`, func)
     fs.writeFileSync(`${dir}/${day}.2.js`, func)
+    
+    // readme
+    fs.writeFileSync(`${dir}/README.md`, 'Part 1 runtime: 0 milliseconds\n\nPart 2 runtime: 0 milliseconds')
 
     console.log('Done.')
 } else {
