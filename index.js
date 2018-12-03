@@ -18,7 +18,7 @@ console.log(func(input.length === 1 ? input[0] : input))
 const end = performance.now()
 let time = Math.round(end - start)
 let units = 'milliseconds'
-if (time > 2000) {
+if (time > 1000) {
     time = (time/1000).toFixed(2)
     units = 'seconds'
 }
