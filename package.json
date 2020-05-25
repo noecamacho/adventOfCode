@@ -6,13 +6,15 @@
   "dependencies": {
     "lodash": "latest",
     "md5": "^2.2.1",
+    "mocha": "^7.2.0",
     "perf_hooks": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node index",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "add-day": "node addDay"
+    "test": "mocha 2019/day-*/**/test.js",
+    "add-day": "node addDay",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,6 @@
   },
   "homepage": "https://github.com/blaskowski94/adventOfCode#readme",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=12.11.0"
   }
 }
